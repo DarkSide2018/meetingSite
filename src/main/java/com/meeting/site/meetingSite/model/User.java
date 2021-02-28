@@ -1,23 +1,62 @@
 package com.meeting.site.meetingSite.model;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name = "user")
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
+
+@Entity
 public class User {
-    @Id
-    private Long id;
-    @Column(columnDefinition = "name")
-    private String name;
-    @Column(columnDefinition = "password")
-    private String password;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    @Column(nullable = false, unique = true)
+    String username;
+    @Column(nullable = false)
+    String password;
+    @Column(nullable = false)
+    String salt;
+    @Column(nullable = false)
+    String role;
+    @Column
+    String token;
+
+    public User() {
+
+    }
+
+    public User(String username, String password, String salt, String role) {
+        this.username = username;
+        this.password = password;
+        this.salt = salt;
+        this.role = role;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

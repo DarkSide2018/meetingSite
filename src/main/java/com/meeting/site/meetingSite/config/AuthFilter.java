@@ -11,7 +11,6 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 
@@ -23,13 +22,6 @@ public class AuthFilter extends GenericFilterBean {
     @SneakyThrows
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String authorization = ((HttpServletRequest) request).getHeader("Authorization");
-        logger.info("authorization -> " + authorization);
-        if(token.equals(authorization)){
             chain.doFilter(request, response);
-        }else{
-            throw new Exception("wrong token");
-        }
-
     }
 }
