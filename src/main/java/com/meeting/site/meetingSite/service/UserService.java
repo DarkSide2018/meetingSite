@@ -1,6 +1,8 @@
 package com.meeting.site.meetingSite.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meeting.site.meetingSite.repository.UserRepository;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +10,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     private UserRepository repository;
-    public String getAll(){
-        return repository.findAll().toString();
+    @Autowired
+    private ObjectMapper mapper;
+
+    @SneakyThrows
+    public String getAll() {
+        return mapper.writeValueAsString(repository.findAll());
     }
 }

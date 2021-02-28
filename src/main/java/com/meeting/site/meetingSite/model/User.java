@@ -3,7 +3,6 @@ package com.meeting.site.meetingSite.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
