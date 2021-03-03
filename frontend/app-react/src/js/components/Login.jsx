@@ -88,7 +88,7 @@ class Login extends React.Component {
 				        
 				      </Col>
 				      <Col sm={10}>
-				        <FormControl type="password" placeholder="Senha" name="pass" onChange={this.changePass.bind(this)} onKeyPress={this.pressEnter.bind(this)}/>
+				        <FormControl type="password" placeholder="password" name="pass" onChange={this.changePass.bind(this)} onKeyPress={this.pressEnter.bind(this)}/>
 				      </Col>
 				    </FormGroup>				    
 
