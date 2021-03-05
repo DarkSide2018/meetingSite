@@ -2,13 +2,12 @@ package com.meeting.site.meetingSite.service;
 
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.UUID;
 
 @Component
-@Scope("prototype")
 @Setter
 public class GateWayTask implements Runnable{
     private UUID uuid;
@@ -26,5 +25,8 @@ public class GateWayTask implements Runnable{
             e.printStackTrace();
         }
     }
-
+    @PostConstruct
+    public void init(){
+        System.out.println("init GateWayTask");
+    }
 }
