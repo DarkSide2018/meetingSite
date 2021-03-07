@@ -4,7 +4,6 @@ import React from "react";
 export class Routing extends React.Component {
 
     render() {
-        const { authenticated, loginFailed, userData } = this.props;
         return (
                 <div>
                     <nav>

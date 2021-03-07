@@ -57,6 +57,9 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
+  devServer: {
+    historyApiFallback: true
+  },
    watchOptions: {
         poll: true
     },

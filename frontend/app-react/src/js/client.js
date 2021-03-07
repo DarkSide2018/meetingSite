@@ -16,9 +16,9 @@ const app = document.getElementById('app')
 
 ReactDOM.render(<Provider store={store}>
   <Router history={hashHistory}>
-    <Route path="/" component={Main}>
       <IndexRoute component={Main}/>      
-      <Route path="main" name="main" component={Main}></Route>     
-    </Route>
+      <Route path="/main" name="main" component={Main}></Route>
+    <IndexRoute component={Routing}/>
+    <Route path="/routing" name="routing" component={Routing}></Route>
   </Router>
 </Provider>, app);
