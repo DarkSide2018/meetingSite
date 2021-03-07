@@ -21,7 +21,7 @@ public class ScheduleService {
     @Autowired
     private Job job;
 
-    @Scheduled(fixedRate = 1000)
+    //@Scheduled(fixedRate = 1000)
     public void schedule(){
          int threadCount = 0;
         System.out.println("poolSize - > " + taskExecutor.getPoolSize());

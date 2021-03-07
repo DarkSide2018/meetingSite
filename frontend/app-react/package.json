@@ -55,7 +55,7 @@
     "helpme": "./node_modules/.bin/webpack --help",
     "build": "./node_modules/.bin/webpack -d -w --display-error-details",
     "build-nowatch": "./node_modules/.bin/webpack -d --display-error-details",
-    "test": "NODE_ENV=test mocha -r mock-local-storage  --compilers js:babel-core/register --require ./src/__tests__/index.js \"./src/**/*-test.js\""
+    "test": "NODE_ENV=test mocha -r mock-local-storage  --compilers js:@babel/register --require ./src/__tests__/index.js \"./src/**/*-test.js\""
   },
   "author": "",
   "license": "ISC"

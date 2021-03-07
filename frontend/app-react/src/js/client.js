@@ -8,6 +8,7 @@ import Main from "./components/Main.jsx"
 
 
 import store from "./store"
+import {Routing} from "./components/Routing";
 
 require('file-loader?name=index.html!../index.html');
 
