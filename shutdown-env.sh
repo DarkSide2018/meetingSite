@@ -8,7 +8,6 @@ echo
 echo "Removing containers"
 echo "-------------------"
 docker rm -fv mysql-master mysql-slave-1 mysql-slave-2 proxysql springSocial socialClient
-docker rm -fv kafka zookeper
 
 echo
 echo "Removing network"
