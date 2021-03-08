@@ -22,7 +22,7 @@ public class User {
     String token;
 
     public User() {
-//
+
     }
 
     public User(String username, String password, String salt, String role) {
