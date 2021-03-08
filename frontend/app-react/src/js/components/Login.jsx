@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux"
+import {connect, Provider} from "react-redux"
 
 
 import {Form} from 'react-bootstrap';
@@ -13,7 +13,10 @@ import {Panel} from 'react-bootstrap';
 
 
 import {doLogin} from "../actions/loginActions";
-import Link from "react-router";
+import {Link, BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Dashboard} from "./Dashboard";
+import {Routing} from "./Routing";
+
 
 
 @connect((store) => {
@@ -107,19 +110,10 @@ class Login extends React.Component {
                                         </Button>
                                     </Col>
                                 </div>
-                                <div>
-                                    <Col smOffset={1} sm={10}>
-                                        <hr/>
-                                        <Button bsStyle="primary" onClick={this.doRegister.bind(this)} style={btn}>
-                                            Register
-                                        </Button>
-                                    </Col>
-                                </div>
                             </FormGroup>
                         </Form>
                     </div>
                 </Panel>
-
             </div>
         );
     }

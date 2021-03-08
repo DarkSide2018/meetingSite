@@ -25,8 +25,4 @@ public class GateWayTask implements Runnable{
             e.printStackTrace();
         }
     }
-    @PostConstruct
-    public void init(){
-        System.out.println("init GateWayTask");
-    }
 }

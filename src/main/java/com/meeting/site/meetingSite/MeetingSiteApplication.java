@@ -1,5 +1,6 @@
 package com.meeting.site.meetingSite;
 
+import com.github.javafaker.Faker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +14,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableAsync
 public class MeetingSiteApplication {
 
     public static void main(String[] args) {
@@ -26,5 +26,9 @@ public class MeetingSiteApplication {
         threadPoolTaskExecutor.setCorePoolSize(5);
         threadPoolTaskExecutor.setMaxPoolSize(10);
         return threadPoolTaskExecutor;
+    }
+    @Bean
+    public Faker faker() throws Exception {
+        return new Faker();
     }
 }

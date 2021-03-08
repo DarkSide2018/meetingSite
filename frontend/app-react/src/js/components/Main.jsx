@@ -13,6 +13,7 @@ import {isAuthenticated} from "../actions/loginActions";
 
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import {Routing} from "./Routing";
+import {Dashboard} from "./Dashboard";
 
 
 @connect((store) => {
@@ -42,10 +43,12 @@ class Main extends React.Component {
         const {authenticated, loginFailed, userData} = this.props;
 
         let html;
+
         if (authenticated) {
             html = (
                 <div>
                     <AfterLogin/>
+                    {console.log("DASH BOARD preparing")}
                 </div>
             )
         } else {
@@ -61,7 +64,9 @@ class Main extends React.Component {
                 )
             } else {
                 html = (
-                    <Login/>
+                    <div>
+                        <Login/>
+                    </div>
                 )
             }
 

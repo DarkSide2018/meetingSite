@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 
 import { doLogout } from "../actions/loginActions";
 import Routing from "./Routing";
+import {Dashboard} from "./Dashboard";
 
 
 @connect((store) => {

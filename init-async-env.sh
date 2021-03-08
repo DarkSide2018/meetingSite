@@ -119,34 +119,38 @@ docker run -d \
   --volume "/$(pwd)/scripts/proxysql.cnf:/etc/proxysql.cnf" \
   proxysql/proxysql:${PROXYSQL_VERSION}
 
-echo "=========================="
-echo "Starting kafka container"
-echo "---------------------------"
-docker run -d \
-  --name kafka \
-  --hostname=kafka\
-  --network=springboot-proxysql-mysql \
-  --restart=unless-stopped \
-  --publish 9092:9092 \
-  -e "KAFKA_ADVERTISED_HOST_NAME=kafka" \
-  -e "KAFKA_ADVERTISED_PORT=9092" \
-  -e "KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181" \
-  -e "KAFKA_BROKER_ID=1" \
-  wurstmeister/kafka
-echo "=========================="
-echo "Starting zookeeper container"
-echo "---------------------------"
-docker run -d \
-  --name zookeeper \
-  --hostname=zookeeper\
-  --network=springboot-proxysql-mysql \
-  --restart=always \
-  --publish 2181:2181 \
-  --publish 2888:2888 \
-  --publish 3888:3888 \
-  -e "ZOO_MY_ID=1" \
-  -e "ZOO_SERVERS=server.1=zookeeper:2888:3888" \
-  wurstmeister/zookeeper
+#echo "=========================="
+#echo "Starting zookeeper container"
+#echo "---------------------------"
+#docker run -d \
+#  --name zookeeper \
+#  --hostname=zookeeper\
+#  --network=springboot-proxysql-mysql \
+#  --restart=always \
+#  --publish 2181:2181 \
+#  --publish 2888:2888 \
+#  --publish 3888:3888 \
+#  -e "ZOO_MY_ID=1" \
+#  -e "ZOOKEEPER_CLIENT_PORT=2181" \
+#  -e "ZOO_SERVERS=server.1=zookeeper:2888:3888" \
+#  wurstmeister/zookeeper
+#echo "=========================="
+#echo "Starting kafka container"
+#echo "---------------------------"
+#docker run -d \
+#  --name kafka \
+#  --hostname=kafka\
+#  --network=springboot-proxysql-mysql \
+#  --restart=unless-stopped \
+#  --publish 9092:9092 \
+#  -e "KAFKA_ADVERTISED_HOST_NAME=kafka" \
+#  -e "KAFKA_ADVERTISED_PORT=9092" \
+#  -e "KAFKA_LISTENERS: INTERNAL://kafka:9092,OUTSIDE://localhost:9092" \
+#  -e "KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:9092"\
+#  -e "KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181" \
+#  -e "KAFKA_BROKER_ID=1" \
+#  wurstmeister/kafka
+
 
 echo "=========================="
 echo "Waiting 5 seconds before checking mysql servers"

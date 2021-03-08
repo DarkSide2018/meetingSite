@@ -33,6 +33,9 @@ public class UserService {
 
 
     public void create(String username, String password, String role) {
+        User byUsername = userRepository.findByUsername(username);
+        if(byUsername != null) return;
+
         String salt = stringSupport.generate();
         User u = userFactory.create(username, DigestUtils.sha256Hex(password), salt, role);
         userRepository.save(u);
